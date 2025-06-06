@@ -1,0 +1,40 @@
+{
+  "context": "client",
+  "identifier": "com.pa.nik.exiles_client",
+  "display_name": "Exiles Faction Client",
+  "description": "Adds a high-tech Energy-based Faction. Development Ongoing",
+  "author": "NikolaMX, BOIYOUSAYWHAT. Assets by billthebluebot, Anonemous2, Bot1, Quiltide, Taiga, KillerKiwiJuice, traqui, RLM Filser",
+  "date": "2025-06-05",
+  "build": "120799",
+  "version": "0.4.5",
+  "signature": "not yet implemented",
+  "forum": "https://steamcommunity.com/app/386070/discussions/0/599650671167384160/",
+  "icon": "https://raw.githubusercontent.com/NikolaMX/Exiles-Faction/refs/heads/main/icon.png",
+  "priority": 110,
+  "titansOnly": true,
+  "category": [
+    "titans",
+    "in-game",
+    "server",
+    "faction",
+    "unit",
+    "exiles",
+    "expansion"
+  ],
+  "scenes": {
+    "shared_build": [
+      "coui://ui/mods/com.pa.nik.exiles/shared_build.js"
+    ],
+    "icon_atlas": [
+      "coui://ui/mods/com.pa.nik.exiles/icon_atlas.js"
+    ],
+    "live_game_players": [
+      "coui://ui/mods/com.pa.nik.exiles/live_game/players.js"
+    ]
+  },
+  "dependencies": [
+    "com.pa.ferretmaster.commander-merge",
+    "com.pa.ferretmaster.build-bar-tabs"
+  ],
+  "hidden": true
+}
