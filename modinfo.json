@@ -34,7 +34,8 @@
   },
   "dependencies": [
     "com.pa.ferretmaster.commander-merge",
-    "com.pa.ferretmaster.build-bar-tabs"
+    "com.pa.ferretmaster.build-bar-tabs",
+    "com.pa.nik.exiles_dev"
   ],
   "hidden": true
 }
