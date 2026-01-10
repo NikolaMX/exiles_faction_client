@@ -1,6 +1,6 @@
 {
   "context": "client",
-  "identifier": "com.pa.nik.exiles_client",
+  "identifier": "com.pa.nik.exiles_client_dev",
   "display_name": "Exiles Faction Client",
   "description": "Adds a high-tech Energy-based Faction. Development Ongoing",
   "author": "NikolaMX, BOIYOUSAYWHAT",
@@ -35,7 +35,7 @@
   "dependencies": [
     "com.pa.ferretmaster.commander-merge",
     "com.pa.ferretmaster.build-bar-tabs",
-    "com.pa.nik.exiles"
+    "com.pa.nik.exiles_dev"
   ],
   "hidden": true
 }
