@@ -1,0 +1,153 @@
+/* Exiles faction event tab — reworked main-menu layout.
+   Third tab inside #left-panel-tabs (NEWS / RANKINGS / EXILES). Switching is
+   driven by the `exiles-tab-active` class on #left-panel, toggled in
+   exiles_board.js. We never edit the base start.css; everything is scoped here.
+   Theme: high-tech energy violet, to read distinct from the base cyan. */
+
+/* The base UI adds `panel-empty` to #left-panel (making it transparent) when its
+   own tab system thinks nothing is selected — which it does on our tab, since it
+   doesn't know about it. While the Exiles tab is open, restore the panel's
+   normal background / border / shadow so it matches the News & Rankings views. */
+#left-panel.exiles-tab-active.panel-empty {
+    background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 100%),
+                url('coui://ui/main/game/game_over/img/bground_summary.png') center center no-repeat rgba(0,0,0,0.2) !important;
+    border-color: rgba(255,255,255,0.15) !important;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.6) !important;
+}
+
+/* ── Content panel ───────────────────────────────────────────────────────── */
+#exiles-event-tab {
+    display: none;            /* shown only while the Exiles tab is active */
+    flex: 1 1 auto;
+    min-height: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: #e9dcff;
+}
+#left-panel.exiles-tab-active #exiles-event-tab { display: flex; }
+
+/* While Exiles is active, hide every other left-panel content surface. */
+#left-panel.exiles-tab-active #news,
+#left-panel.exiles-tab-active #mini-board,
+#left-panel.exiles-tab-active #streams,
+#left-panel.exiles-tab-active #videos,
+#left-panel.exiles-tab-active #links-panel,
+#left-panel.exiles-tab-active #warnings,
+#left-panel.exiles-tab-active #events {
+    display: none !important;
+}
+
+/* Suppress the cyan highlight the base UI keeps on NEWS/RANKINGS while we're on
+   the Exiles tab, without touching any KO observable. */
+#left-panel.exiles-tab-active #left-panel-tabs .left-tab.left-tab-active:not(#exiles-event-tab-btn) {
+    color: rgba(97, 230, 255, 0.5) !important;
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+/* ── Tab button (white text on violet when not selected) ─────────────────── */
+#left-panel-tabs #exiles-event-tab-btn {
+    color: #fff;                          /* white text when not selected */
+    background: rgba(90, 30, 150, 0.55);  /* violet background when not selected */
+}
+#left-panel-tabs #exiles-event-tab-btn:hover {
+    color: #fff;
+    background: rgba(120, 45, 190, 0.7);
+}
+#left-panel.exiles-tab-active #left-panel-tabs #exiles-event-tab-btn {
+    color: #d8a8ff !important;
+    background: rgba(70, 20, 120, 0.5) !important;
+    border-bottom: 2px solid #a64bff;
+    text-shadow: 0 0 10px #a64bff;
+}
+
+/* ── Header artwork ──────────────────────────────────────────────────────── */
+.exiles-event-header {
+    flex-shrink: 0;
+    background: rgba(20, 5, 35, 0.5);
+    border-bottom: 1px solid rgba(166, 75, 255, 0.3);
+}
+/* Fill the full panel width, edge to edge. */
+.exiles-event-header img { display: block; width: 100%; height: auto; }
+
+/* ── Body text ───────────────────────────────────────────────────────────── */
+.exiles-event-body { padding: 14px 16px; color: #e9dcff; }
+.exiles-event-body h1 {
+    margin: 0 0 4px;
+    color: #c89cff;
+    text-shadow: 0 0 12px #8a2be2;
+    font-size: 22px;
+}
+.exiles-event-body h3 {
+    margin: 0 0 10px;
+    color: #d8a8ff;
+    font-weight: bold;
+    font-size: 15px;
+}
+.exiles-event-body p { margin: 0 0 10px; line-height: 1.5; font-size: 13px; }
+
+/* ── Feature list ────────────────────────────────────────────────────────── */
+.exiles-features {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 13px;
+}
+.exiles-features li {
+    position: relative;
+    padding: 4px 0 4px 18px;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(166, 75, 255, 0.12);
+}
+.exiles-features li:before {
+    content: '\25B8';            /* small right-pointing triangle */
+    position: absolute;
+    left: 2px;
+    color: #a64bff;
+}
+.exiles-features li.exiles-soon {
+    border-bottom: none;
+    margin-top: 6px;
+    color: #b98cff;
+    font-style: italic;
+}
+.exiles-features li.exiles-soon:before { content: '\2726'; }   /* sparkle */
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.exiles-button-set { margin: 14px 0; }
+.exiles-button {
+    display: block;
+    border: 1px solid #a64bff !important;
+    border-radius: 4px;
+    background: #2a0d4a;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    color: #d8a8ff !important;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px #a64bff;
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+.exiles-button:hover, .exiles-button:focus {
+    background: #4a1a7a;
+    box-shadow: inset 0 0 10px #a64bff;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* ── Tagline ─────────────────────────────────────────────────────────────── */
+.exiles-tagline {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b14bff;
+    text-shadow: 0 0 10px #8a2be2;
+    padding: 10px 0 4px;
+}
+
+@keyframes exiles-energy-glow {
+    0%, 100% { text-shadow: 0 0 6px #8a2be2, 0 0 15px #a64bff; }
+    50%      { text-shadow: 0 0 12px #d8a8ff, 0 0 25px #8a2be2; }
+}
+.exiles-tagline, .exiles-button { animation: exiles-energy-glow 3s infinite alternate; }

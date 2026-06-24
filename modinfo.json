@@ -1,12 +1,12 @@
 {
   "context": "client",
-  "identifier": "com.pa.nik.exiles_client",
+  "identifier": "com.pa.nik.exiles_client_dev",
   "display_name": "Exiles Faction Client",
   "description": "Adds a high-tech Energy-based Faction. Development Ongoing",
   "author": "NikolaMX, BOIYOUSAYWHAT",
-  "date": "2026-06-14",
-	"build": "124651",
-	"version": "0.7.5",
+  "date": "2026-06-24",
+	"build": "124662",
+	"version": "0.7.6",
   "signature": "not yet implemented",
   "forum": "https://steamcommunity.com/app/386070/discussions/0/599650671167384160/",
   "icon": "https://raw.githubusercontent.com/NikolaMX/Exiles-Faction/refs/heads/main/icon.png",
@@ -21,21 +21,16 @@
     "exiles",
     "expansion"
   ],
+  "dependencies": [
+    "com.pa.ferretmaster.commander-merge_dev",
+    "com.pa.ferretmaster.build-bar-tabs",
+    "com.pa.nik.exiles_dev"
+  ],
   "scenes": {
-    "shared_build": [
-      "coui://ui/mods/com.pa.nik.exiles/shared_build.js"
-    ],
-    "icon_atlas": [
-      "coui://ui/mods/com.pa.nik.exiles/icon_atlas.js"
-    ],
-    "live_game_players": [
-      "coui://ui/mods/com.pa.nik.exiles/live_game/players.js"
+    "start": [
+      "coui://ui/mods/exiles_eventboard/exiles_board.js",
+      "coui://ui/mods/exiles_eventboard/css/exiles_board.css"
     ]
   },
-  "dependencies": [
-    "com.pa.ferretmaster.commander-merge",
-    "com.pa.ferretmaster.build-bar-tabs",
-    "com.pa.nik.exiles"
-  ],
   "hidden": true
 }
